@@ -213,7 +213,8 @@
                     <h3>Renouvellement de la foi</h3>
                     <div class="rating">
                         <label>Intensité de ma relation avec Dieu</label>
-                        <input type="range" min="1" max="10" value="5" title="1 = Très faible, 10 = Très forte">
+                        <input type="range" min="0" max="100" value="50" class="progress-range">
+                         <span class="rating-value">50%</span>
                     </div>
                     <textarea placeholder="Décrivez votre progression spirituelle cette année :
 - Comment évaluez-vous votre temps de prière et de lecture biblique ?
@@ -267,7 +268,8 @@
                     <h3>Relations interpersonnelles</h3>
                     <div class="rating">
                         <label>Qualité des relations</label>
-                        <input type="range" min="1" max="10" value="5" title="1 = Très difficile, 10 = Excellente">
+                        <input type="range" min="0" max="100" value="50" class="progress-range">
+                         <span class="rating-value">50%</span>
                     </div>
                     <textarea placeholder="Analysez vos relations :
 - Comment qualifieriez-vous vos relations familiales ?
@@ -308,6 +310,13 @@
 
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // Mise à jour des pourcentages en temps réel
+    document.querySelectorAll('.progress-range').forEach(range => {
+        range.addEventListener('input', function() {
+            this.parentElement.querySelector('.rating-value').textContent = this.value + '%';
+        });
+    });
         document.getElementById('evaluationForm').addEventListener('submit', function (e) {
             e.preventDefault();
             submitForm();
@@ -392,6 +401,7 @@
                 }
             });
         });
+    });
     </script>
 
 
