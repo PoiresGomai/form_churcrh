@@ -1,0 +1,323 @@
+<!DOCTYPE html><html lang="fr"><head><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilan Spirituel et Personnel</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 10px;
+            background: #f8f9fa;
+        }
+
+        h2 {
+            color: #34495e;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .subsection {
+            margin-bottom: 25px;
+        }
+
+        h3 {
+            color: #2980b9;
+            margin-bottom: 15px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            resize: vertical;
+            min-height: 200px;
+            font-family: inherit;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .rating label {
+            margin-right: 10px;
+            min-width: 200px;
+        }
+
+        .rating input[type="range"] {
+            flex: 1;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 200px;
+            margin: 30px auto;
+            padding: 12px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 1.1em;
+        }
+
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .section {
+                padding: 15px;
+            }
+
+            .rating {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .rating label {
+                margin-bottom: 5px;
+            }
+
+            textarea {
+                min-height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bilan Spirituel et Personnel</h1>
+        <form id="evaluationForm">
+            <!-- Section 1: Croissance Spirituelle -->
+            <div class="section">
+                <h2>1. Croissance Spirituelle</h2>
+                
+                <div class="subsection">
+                    <h3>Renouvellement de la foi</h3>
+                    <div class="rating">
+                        <label>Intensité de ma relation avec Dieu</label>
+                        <input type="range" min="1" max="10" value="5" title="1 = Très faible, 10 = Très forte">
+                    </div>
+                    <textarea placeholder="Décrivez votre progression spirituelle cette année :
+- Comment évaluez-vous votre temps de prière et de lecture biblique ?
+- Quelle a été votre assiduité aux cultes et retraites spirituelles ?
+- Quels passages bibliques vous ont particulièrement marqué ?
+- Comment appliquez-vous la Parole dans votre quotidien ?"></textarea>
+                </div>
+
+                <div class="subsection">
+                    <h3>Délivrance et guérison spirituelle</h3>
+                    <textarea placeholder="Réfléchissez et partagez :
+- Quelles victoires spirituelles avez-vous expérimentées ?
+- Dans quels domaines avez-vous reçu une guérison intérieure ?
+- Quels défis spirituels persistent encore ?
+- Comment Dieu vous a-t-il aidé à surmonter certaines épreuves ?"></textarea>
+                </div>
+
+                <div class="subsection">
+                    <h3>Engagement dans le service chrétien</h3>
+                    <textarea placeholder="Évaluez votre engagement :
+- Dans quels ministères êtes-vous impliqué(e) ?
+- Quels sont vos domaines de service dans l'église ?
+- Comment servez-vous votre communauté locale ?
+- Quelles actions missionnaires avez-vous entreprises ?"></textarea>
+                </div>
+            </div>
+
+            <!-- Section 2: Développement Personnel -->
+            <div class="section">
+                <h2>2. Développement Personnel</h2>
+
+                <div class="subsection">
+                    <h3>Objectifs de vie et vision personnelle</h3>
+                    <textarea placeholder="Examinez votre vision et vos objectifs :
+- Quels étaient vos objectifs principaux cette année ?
+- Lesquels avez-vous atteints ? Pourquoi ?
+- Comment votre vision personnelle s'aligne-t-elle avec la volonté de Dieu ?
+- Quels ajustements sont nécessaires ?"></textarea>
+                </div>
+
+                <div class="subsection">
+                    <h3>Croissance professionnelle</h3>
+                    <textarea placeholder="Évaluez votre développement professionnel :
+- Quelles nouvelles compétences avez-vous acquises ?
+- Quelles formations avez-vous suivies ?
+- Quels ont été vos succès professionnels ?
+- Quels sont vos axes d'amélioration ?"></textarea>
+                </div>
+
+                <div class="subsection">
+                    <h3>Relations interpersonnelles</h3>
+                    <div class="rating">
+                        <label>Qualité des relations</label>
+                        <input type="range" min="1" max="10" value="5" title="1 = Très difficile, 10 = Excellente">
+                    </div>
+                    <textarea placeholder="Analysez vos relations :
+- Comment qualifieriez-vous vos relations familiales ?
+- Quelle est la qualité de vos amitiés ?
+- Comment gérez-vous les conflits ?
+- De quelle manière soutenez-vous les autres ?"></textarea>
+                </div>
+            </div>
+
+            <!-- Section 3: Réflexions et Objectifs -->
+            <div class="section">
+                <h2>3. Réflexions et Objectifs pour l'Avenir</h2>
+
+                <div class="subsection">
+                    <h3>Réflexions sur l'année écoulée</h3>
+                    <textarea placeholder="Faites le point sur l'année :
+- Quelles sont les principales leçons apprises ?
+- Quels défis avez-vous surmontés ?
+- Quelles bénédictions avez-vous reçues ?
+- Comment avez-vous grandi spirituellement ?"></textarea>
+                </div>
+
+                <div class="subsection">
+                    <h3>Objectifs pour la prochaine année</h3>
+                    <textarea placeholder="Définissez vos objectifs futurs :
+- Quels sont vos objectifs spirituels précis ?
+- Quelles nouvelles compétences souhaitez-vous développer ?
+- Quels changements concrets voulez-vous apporter ?
+- Quels ministères souhaitez-vous intégrer ?"></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Enregistrer le bilan</button>
+        </form>
+    </div>
+
+
+
+
+    <script>
+        document.getElementById('evaluationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            submitForm();
+        });
+        
+        function submitForm() {
+            // Récupérer toutes les valeurs des textareas
+            const textareas = document.querySelectorAll('textarea');
+            const ranges = document.querySelectorAll('input[type="range"]');
+            
+            // Valider que chaque textarea contient au moins 50 caractères
+            let isValid = true;
+            textareas.forEach(textarea => {
+                if (textarea.value.length < 50) {
+                    isValid = false;
+                    textarea.style.border = '2px solid red';
+                } else {
+                    textarea.style.border = '1px solid #ddd';
+                }
+            });
+        
+            if (!isValid) {
+                alert('Veuillez remplir tous les champs avec au moins 50 caractères.');
+                return;
+            }
+        
+            // Préparer les données
+            const formData = {
+                // Section 1: Croissance Spirituelle
+                relationDieu: ranges[0].value,
+                renouvellementFoi: textareas[0].value,
+                delivranceGuerison: textareas[1].value,
+                engagementService: textareas[2].value,
+        
+                // Section 2: Développement Personnel
+                objectifsVision: textareas[3].value,
+                croissancePro: textareas[4].value,
+                qualiteRelations: ranges[1].value,
+                relationsInterper: textareas[5].value,
+        
+                // Section 3: Réflexions et Objectifs
+                reflexionsAnnee: textareas[6].value,
+                objectifsFuturs: textareas[7].value
+            };
+        
+            // Désactiver le bouton pendant l'envoi
+            const submitBtn = document.querySelector('.submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Envoi en cours...';   
+        
+            // Envoyer les données
+            fetch('https://script.google.com/macros/s/AKfycbwQTf85bsGpYZlipTnV6o8dJ6rYHc1K8I14NvEYaxbFrfZnc0ry92ulQ4UJD63R6Nmg/exec', {
+                method: 'POST',
+                body: JSON.stringify(formData),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Votre bilan a été enregistré avec succès !');
+                document.getElementById('evaluationForm').reset();
+            })
+            .catch(error => {
+                alert('Une erreur est survenue lors de l\'enregistrement. Veuillez réessayer.');
+                console.error('Error:', error);
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Enregistrer le bilan';
+            });
+        }
+        
+        // Ajouter des écouteurs d'événements pour la validation en temps réel
+        document.querySelectorAll('textarea').forEach(textarea => {
+            textarea.addEventListener('input', function() {
+                if (this.value.length < 50) {
+                    this.style.border = '2px solid #ffcccb';
+                } else {
+                    this.style.border = '1px solid #ddd';
+                }
+            });
+        });
+        </script>
+
+
+
+</body></html>
