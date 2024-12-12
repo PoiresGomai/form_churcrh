@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://script.google.com; script-src 'self' 'unsafe-inline' https://script.google.com; style-src 'self' 'unsafe-inline';">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bilan Spirituel et Personnel</title>
 
@@ -358,8 +359,9 @@
             submitBtn.textContent = 'Envoi en cours...';
 
             // Envoyer les données
-            fetch('https://script.google.com/macros/s/AKfycbwQTf85bsGpYZlipTnV6o8dJ6rYHc1K8I14NvEYaxbFrfZnc0ry92ulQ4UJD63R6Nmg/exec', {
+            fetch('https://script.google.com/macros/s/AKfycbyKWaOZy0-fFhnPBRnfaCSAthpwXa1JM1YMeSZ_6biTtHJ8Qvn-vG8ORu-eifocuKQ/exec', {
                 method: 'POST',
+                mode: 'no-cors', // Ajoutez cette ligne
                 body: JSON.stringify(formData),
                 headers: {
                     'Content-Type': 'application/json'
