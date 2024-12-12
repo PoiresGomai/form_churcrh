@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Bilan annuel de destinée</title>
+     <script src="https://google-apps-script.googleusercontent.com/apis/script/ap"></script>
+    
 
 
     <style>
@@ -306,6 +308,7 @@
 
 
     <script>
+         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwAncap897JvBTkJ3Y0EUWNUcTE4VPrz8ijTk-HG98oC9qhxrAR7s2iXOSp_dKCRIir/exec';
         document.addEventListener('DOMContentLoaded', function() {
     // Mise à jour des pourcentages en temps réel
     document.querySelectorAll('.progress-range').forEach(range => {
@@ -367,21 +370,32 @@
         submitBtn.disabled = true;
         submitBtn.textContent = 'Envoi en cours...';
 
-        // Utiliser google.script.run pour envoyer les données
-        google.script.run
-            .withSuccessHandler(function(result) {
+        // Remplacer la partie google.script.run par une requête fetch
+            const submitBtn = document.querySelector('.submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Envoi en cours...';
+
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
                 alert('Votre bilan a été envoyé avec succès !');
                 document.getElementById('evaluationForm').reset();
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Enregistrer le bilan';
             })
-            .withFailureHandler(function(error) {
+            .catch(error => {
                 alert('Une erreur est survenue lors de l\'enregistrement. Veuillez réessayer.');
                 console.error('Error:', error);
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Enregistrer le bilan';
-            })
-            .processForm(formData);
+            });
+        }
     }
 
     // Validation en temps réel des textareas
