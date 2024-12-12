@@ -371,10 +371,6 @@
         submitBtn.textContent = 'Envoi en cours...';
 
         // Remplacer la partie google.script.run par une requête fetch
-            const submitBtn = document.querySelector('.submit-btn');
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Envoi en cours...';
-
             fetch(SCRIPT_URL, {
                 method: 'POST',
                 headers: {
