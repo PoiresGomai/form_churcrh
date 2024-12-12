@@ -2,7 +2,6 @@
 <html lang="fr">
 
 <head>
-    <meta http-equiv="Content-Security-Policy" content="connect-src 'self' https://script.google.com https://script.googleusercontent.com">
     <meta charset="UTF-8">
     <title>Bilan Spirituel et Personnel</title>
 
@@ -314,105 +313,89 @@
             this.parentElement.querySelector('.rating-value').textContent = this.value + '%';
         });
     });
-        document.getElementById('evaluationForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            submitForm();
+
+    document.getElementById('evaluationForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        submitForm();
+    });
+
+    function submitForm() {
+        // Récupérer toutes les valeurs des textareas
+        const textareas = document.querySelectorAll('textarea');
+        const ranges = document.querySelectorAll('input[type="range"]');
+
+        // Valider que chaque textarea contient au moins 50 caractères
+        let isValid = true;
+        textareas.forEach(textarea => {
+            if (textarea.value.length < 50) {
+                isValid = false;
+                textarea.style.border = '2px solid red';
+            } else {
+                textarea.style.border = '1px solid #ddd';
+            }
         });
 
-        function submitForm() {
-            // Récupérer toutes les valeurs des textareas
-            const textareas = document.querySelectorAll('textarea');
-            const ranges = document.querySelectorAll('input[type="range"]');
-
-            // Valider que chaque textarea contient au moins 50 caractères
-            let isValid = true;
-            textareas.forEach(textarea => {
-                if (textarea.value.length < 50) {
-                    isValid = false;
-                    textarea.style.border = '2px solid red';
-                } else {
-                    textarea.style.border = '1px solid #ddd';
-                }
-            });
-
-            if (!isValid) {
-                alert('Veuillez remplir tous les champs avec au moins 50 caractères.');
-                return;
-            }
-
-
-            // Récupérer les valeurs des champs personnels
-    const nom = document.getElementById('nom').value;
-    const prenom = document.getElementById('prenom').value;
-    const telephone = document.getElementById('telephone').value;
-
-            // Préparer les données
-            const formData = {
-
-                // informations personnelles 
-                    nom: nom,
-                    prenom: prenom,
-                    telephone: telephone,
-                
-                // Section 1: Croissance Spirituelle
-                relationDieu: ranges[0].value,
-                renouvellementFoi: textareas[0].value,
-                delivranceGuerison: textareas[1].value,
-                engagementService: textareas[2].value,
-
-                // Section 2: Développement Personnel
-                objectifsVision: textareas[3].value,
-                croissancePro: textareas[4].value,
-                qualiteRelations: ranges[1].value,
-                relationsInterper: textareas[5].value,
-
-                // Section 3: Réflexions et Objectifs
-                reflexionsAnnee: textareas[6].value,
-                objectifsFuturs: textareas[7].value
-            };
-
-            // Désactiver le bouton pendant l'envoi
-            const submitBtn = document.querySelector('.submit-btn');
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Envoi en cours...';
-
-            // Envoyer les données
-            fetch('https://script.google.com/macros/s/AKfycbyKWaOZy0-fFhnPBRnfaCSAthpwXa1JM1YMeSZ_6biTtHJ8Qvn-vG8ORu-eifocuKQ/exec', {
-                method: 'POST',
-                mode: 'no-cors', // Ajoutez cette ligne
-                body: JSON.stringify(formData),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-               .then(() => {
-        // Avec mode 'no-cors', on ne peut pas accéder à la réponse
-        alert('Votre bilan a été envoyé !');
-        document.getElementById('evaluationForm').reset();
-    })
-                .catch(error => {
-                    alert('Une erreur est survenue lors de l\'enregistrement. Veuillez réessayer.');
-                    console.error('Error:', error);
-                })
-                .finally(() => {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Enregistrer le bilan';
-                });
+        if (!isValid) {
+            alert('Veuillez remplir tous les champs avec au moins 50 caractères.');
+            return;
         }
 
-        // Ajouter des écouteurs d'événements pour la validation en temps réel
-        document.querySelectorAll('textarea').forEach(textarea => {
-            textarea.addEventListener('input', function () {
-                if (this.value.length < 50) {
-                    this.style.border = '2px solid #ffcccb';
-                } else {
-                    this.style.border = '1px solid #ddd';
-                }
-            });
+        // Récupérer les valeurs des champs personnels
+        const nom = document.getElementById('nom').value;
+        const prenom = document.getElementById('prenom').value;
+        const telephone = document.getElementById('telephone').value;
+
+        // Préparer les données
+        const formData = {
+            nom: nom,
+            prenom: prenom,
+            telephone: telephone,
+            relationDieu: ranges[0].value,
+            renouvellementFoi: textareas[0].value,
+            delivranceGuerison: textareas[1].value,
+            engagementService: textareas[2].value,
+            objectifsVision: textareas[3].value,
+            croissancePro: textareas[4].value,
+            qualiteRelations: ranges[1].value,
+            relationsInterper: textareas[5].value,
+            reflexionsAnnee: textareas[6].value,
+            objectifsFuturs: textareas[7].value
+        };
+
+        // Désactiver le bouton pendant l'envoi
+        const submitBtn = document.querySelector('.submit-btn');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Envoi en cours...';
+
+        // Utiliser google.script.run pour envoyer les données
+        google.script.run
+            .withSuccessHandler(function(result) {
+                alert('Votre bilan a été envoyé avec succès !');
+                document.getElementById('evaluationForm').reset();
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Enregistrer le bilan';
+            })
+            .withFailureHandler(function(error) {
+                alert('Une erreur est survenue lors de l\'enregistrement. Veuillez réessayer.');
+                console.error('Error:', error);
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Enregistrer le bilan';
+            })
+            .processForm(formData);
+    }
+
+    // Validation en temps réel des textareas
+    document.querySelectorAll('textarea').forEach(textarea => {
+        textarea.addEventListener('input', function() {
+            if (this.value.length < 50) {
+                this.style.border = '2px solid #ffcccb';
+            } else {
+                this.style.border = '1px solid #ddd';
+            }
         });
     });
-    </script>
-
+});
+</script>
 
 
 </body>
