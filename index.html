@@ -564,12 +564,13 @@
         function submitForm() {
             // Récupérer toutes les valeurs des textareas
             const textareas = document.querySelectorAll('textarea');
+            
             const ranges = document.querySelectorAll('input[type="range"]');
 
             // Valider que chaque textarea contient au moins 50 caractères
             let isValid = true;
             textareas.forEach(textarea => {
-                if (textarea.value.length < 50) {
+                if (textarea.value.length < 30) {
                     isValid = false;
                     textarea.style.border = '2px solid red';
                 } else {
@@ -589,20 +590,71 @@
 
             // Préparer les données
             const formData = {
-                nom: nom,
-                prenom: prenom,
-                telephone: telephone,
-                relationDieu: ranges[0].value,
-                renouvellementFoi: textareas[0].value,
-                delivranceGuerison: textareas[1].value,
-                engagementService: textareas[2].value,
-                objectifsVision: textareas[3].value,
-                croissancePro: textareas[4].value,
-                qualiteRelations: ranges[1].value,
-                relationsInterper: textareas[5].value,
-                reflexionsAnnee: textareas[6].value,
-                objectifsFuturs: textareas[7].value
+                nom: document.getElementById('nom').value,
+                prenom: document.getElementById('prenom').value,
+                telephone: document.getElementById('telephone').value,
+                faithProgress: document.querySelector('input[name="faith-progress"]:checked').value,
+                debutAnnee: document.querySelector('input[name="debut-annee"]:checked').value,
+                encadrementSpirituel: document.querySelector('input[name="encadrement-spirituel"]:checked').value,
+                objectifsSpirituels2025: document.querySelector('textarea[name="objectifs-spirituels-2025"]').value,
+                epanouissement: document.querySelector('input[name="epanouissement"]:checked').value,
+                meditationProgress: document.getElementById('meditation-progress').value,
+                besoinSuivi: document.querySelector('input[name="besoin-suivi"]:checked').value,
+                objectifsCroissance2025: document.querySelector('textarea[name="objectifs-croissance-2025"]').value,
+                ministere: document.getElementById('ministere').value,
+                engagementProgress: document.getElementById('engagement-progress').value,
+                objectifsService2025: document.querySelector('textarea[name="objectifs-service-2025"]').value,
+                objectifs2024: document.querySelector('input[name="objectifs-2024"]:checked').value,
+                objectifsPrincipaux: document.querySelector('textarea[name="objectifs-principaux"]').value,
+                visionPersonnelle: document.querySelector('textarea[name="vision-personnelle"]').value,
+                ajustements: document.querySelector('input[name="ajustements"]:checked').value,
+                competencesAcquises: document.querySelector('textarea[name="competences-acquises"]').value,
+                formationsSuivies: document.querySelector('textarea[name="formations-suivies"]').value,
+                livresLus: document.querySelector('input[name="livres-lus"]:checked').value,
+                axesAmelioration: document.querySelector('textarea[name="axes-amelioration"]').value,
+                relationsFamiliales: document.querySelector('input[name="relations-familiales"]:checked').value,
+                qualiteAmitie: document.querySelector('input[name="qualite-amitie"]:checked').value,
+                gestionConflits: document.querySelector('textarea[name="gestion-conflits"]').value,
+                reflexionsAnnee: document.querySelector('textarea[name="reflexions-annee"]').value,
+                objectifsFuturs: document.querySelector('textarea[name="objectifs-futurs"]').value
             };
+
+
+           
+
+            // Radio buttons and selects validation
+            const radios = document.querySelectorAll('input[type="radio"], input[type="checkbox"], select');
+            radios.forEach(radio => {
+                if (!radio.checked && radio.type !== 'checkbox') {
+                    if (radio.name) {
+                        const radiosName = document.querySelectorAll(`input[name="${radio.name}"]`);
+                        let isAnyChecked = false;
+                        radiosName.forEach(r => {
+                            if (r.checked) {
+                                isAnyChecked = true;
+                            }
+                        });
+                        if (!isAnyChecked) {
+                            isValid = false;
+                            alert(`Veuillez sélectionner une option pour ${radio.name}.`);
+                        }
+                    }
+                }
+            });
+
+            // Ensure select has a value
+            const selects = document.querySelectorAll('select');
+            selects.forEach(select => {
+                if (select.value === '') {
+                    isValid = false;
+                    alert(`Veuillez sélectionner une option pour ${select.name}.`);
+                }
+            });
+
+            if (!isValid) {
+                alert('Veuillez remplir tous les champs requis.');
+                return;
+            }
 
             // Désactiver le bouton pendant l'envoi
             const submitBtn = document.querySelector('.submit-btn');
