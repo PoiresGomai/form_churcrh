@@ -374,7 +374,7 @@
                 // Remplacer la partie google.script.run par une requête fetch
                 fetch(SCRIPT_URL, {
                     method: 'POST',
-                    
+                    mode: 'no-cors',
                     headers: {
                         'Content-Type': 'application/json',
                     },
