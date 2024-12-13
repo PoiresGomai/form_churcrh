@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Bilan annuel de destinée</title>
-     <script src="https://google-apps-script.googleusercontent.com/apis/script/ap"></script>
-    
+    <script src="https://google-apps-script.googleusercontent.com/apis/script/ap"></script>
+
 
 
     <style>
@@ -212,7 +212,7 @@
                     <div class="rating">
                         <label>Intensité de ma relation avec Dieu</label>
                         <input type="range" min="0" max="100" value="50" class="progress-range">
-                         <span class="rating-value">50%</span>
+                        <span class="rating-value">50%</span>
                     </div>
                     <textarea placeholder="Décrivez votre progression spirituelle cette année :
 - Comment évaluez-vous votre temps de prière et de lecture biblique ?
@@ -267,7 +267,7 @@
                     <div class="rating">
                         <label>Qualité des relations</label>
                         <input type="range" min="0" max="100" value="50" class="progress-range">
-                         <span class="rating-value">50%</span>
+                        <span class="rating-value">50%</span>
                     </div>
                     <textarea placeholder="Analysez vos relations :
 - Comment qualifieriez-vous vos relations familiales ?
@@ -308,93 +308,93 @@
 
 
     <script>
-         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwAncap897JvBTkJ3Y0EUWNUcTE4VPrz8ijTk-HG98oC9qhxrAR7s2iXOSp_dKCRIir/exec';
-        document.addEventListener('DOMContentLoaded', function() {
-    // Mise à jour des pourcentages en temps réel
-    document.querySelectorAll('.progress-range').forEach(range => {
-        range.addEventListener('input', function() {
-            this.parentElement.querySelector('.rating-value').textContent = this.value + '%';
-        });
-    });
-
-    document.getElementById('evaluationForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        submitForm();
-    });
-
-    function submitForm() {
-        // Récupérer toutes les valeurs des textareas
-        const textareas = document.querySelectorAll('textarea');
-        const ranges = document.querySelectorAll('input[type="range"]');
-
-        // Valider que chaque textarea contient au moins 50 caractères
-        let isValid = true;
-        textareas.forEach(textarea => {
-            if (textarea.value.length < 50) {
-                isValid = false;
-                textarea.style.border = '2px solid red';
-            } else {
-                textarea.style.border = '1px solid #ddd';
-            }
-        });
-
-        if (!isValid) {
-            alert('Veuillez remplir tous les champs avec au moins 50 caractères.');
-            return;
-        }
-
-        // Récupérer les valeurs des champs personnels
-        const nom = document.getElementById('nom').value;
-        const prenom = document.getElementById('prenom').value;
-        const telephone = document.getElementById('telephone').value;
-
-        // Préparer les données
-        const formData = {
-            nom: nom,
-            prenom: prenom,
-            telephone: telephone,
-            relationDieu: ranges[0].value,
-            renouvellementFoi: textareas[0].value,
-            delivranceGuerison: textareas[1].value,
-            engagementService: textareas[2].value,
-            objectifsVision: textareas[3].value,
-            croissancePro: textareas[4].value,
-            qualiteRelations: ranges[1].value,
-            relationsInterper: textareas[5].value,
-            reflexionsAnnee: textareas[6].value,
-            objectifsFuturs: textareas[7].value
-        };
-
-        // Désactiver le bouton pendant l'envoi
-        const submitBtn = document.querySelector('.submit-btn');
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Envoi en cours...';
-
-        // Remplacer la partie google.script.run par une requête fetch
-            fetch(SCRIPT_URL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData)
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert('Votre bilan a été envoyé avec succès !');
-                document.getElementById('evaluationForm').reset();
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Enregistrer le bilan';
-            })
-            .catch(error => {
-                alert('Une erreur est survenue lors de l\'enregistrement. Veuillez réessayer.');
-                console.error('Error:', error);
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Enregistrer le bilan';
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwAncap897JvBTkJ3Y0EUWNUcTE4VPrz8ijTk-HG98oC9qhxrAR7s2iXOSp_dKCRIir/exec';
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mise à jour des pourcentages en temps réel
+            document.querySelectorAll('.progress-range').forEach(range => {
+                range.addEventListener('input', function () {
+                    this.parentElement.querySelector('.rating-value').textContent = this.value + '%';
+                });
             });
-        }
 
-    // Ajouter des écouteurs d'événements pour la validation en temps réel
-     document.querySelectorAll('textarea').forEach(textarea => {
+            document.getElementById('evaluationForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                submitForm();
+            });
+
+            function submitForm() {
+                // Récupérer toutes les valeurs des textareas
+                const textareas = document.querySelectorAll('textarea');
+                const ranges = document.querySelectorAll('input[type="range"]');
+
+                // Valider que chaque textarea contient au moins 50 caractères
+                let isValid = true;
+                textareas.forEach(textarea => {
+                    if (textarea.value.length < 50) {
+                        isValid = false;
+                        textarea.style.border = '2px solid red';
+                    } else {
+                        textarea.style.border = '1px solid #ddd';
+                    }
+                });
+
+                if (!isValid) {
+                    alert('Veuillez remplir tous les champs avec au moins 50 caractères.');
+                    return;
+                }
+
+                // Récupérer les valeurs des champs personnels
+                const nom = document.getElementById('nom').value;
+                const prenom = document.getElementById('prenom').value;
+                const telephone = document.getElementById('telephone').value;
+
+                // Préparer les données
+                const formData = {
+                    nom: nom,
+                    prenom: prenom,
+                    telephone: telephone,
+                    relationDieu: ranges[0].value,
+                    renouvellementFoi: textareas[0].value,
+                    delivranceGuerison: textareas[1].value,
+                    engagementService: textareas[2].value,
+                    objectifsVision: textareas[3].value,
+                    croissancePro: textareas[4].value,
+                    qualiteRelations: ranges[1].value,
+                    relationsInterper: textareas[5].value,
+                    reflexionsAnnee: textareas[6].value,
+                    objectifsFuturs: textareas[7].value
+                };
+
+                // Désactiver le bouton pendant l'envoi
+                const submitBtn = document.querySelector('.submit-btn');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Envoi en cours...';
+
+                // Remplacer la partie google.script.run par une requête fetch
+                fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        alert('Votre bilan a été envoyé avec succès !');
+                        document.getElementById('evaluationForm').reset();
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Enregistrer le bilan';
+                    })
+                    .catch(error => {
+                        alert('Une erreur est survenue lors de l\'enregistrement. Veuillez réessayer.');
+                        console.error('Error:', error);
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Enregistrer le bilan';
+                    });
+            }
+
+            // Ajouter des écouteurs d'événements pour la validation en temps réel
+            document.querySelectorAll('textarea').forEach(textarea => {
                 textarea.addEventListener('input', function () {
                     if (this.value.length < 50) {
                         this.style.border = '2px solid #ffcccb';
@@ -403,7 +403,8 @@
                     }
                 });
             });
-</script>
+        });
+    </script>
 
 
 </body>
