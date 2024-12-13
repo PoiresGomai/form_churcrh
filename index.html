@@ -589,35 +589,50 @@
             const telephone = document.getElementById('telephone').value;
 
             // Préparer les données
-            const formData = {
-                nom: document.getElementById('nom').value,
-                prenom: document.getElementById('prenom').value,
-                telephone: document.getElementById('telephone').value,
-                faithProgress: document.querySelector('input[name="faith-progress"]:checked').value,
-                debutAnnee: document.querySelector('input[name="debut-annee"]:checked').value,
-                encadrementSpirituel: document.querySelector('input[name="encadrement-spirituel"]:checked').value,
-                objectifsSpirituels2025: document.querySelector('textarea[name="objectifs-spirituels-2025"]').value,
-                epanouissement: document.querySelector('input[name="epanouissement"]:checked').value,
-                meditationProgress: document.getElementById('meditation-progress').value,
-                besoinSuivi: document.querySelector('input[name="besoin-suivi"]:checked').value,
-                objectifsCroissance2025: document.querySelector('textarea[name="objectifs-croissance-2025"]').value,
-                ministere: document.getElementById('ministere').value,
-                engagementProgress: document.getElementById('engagement-progress').value,
-                objectifsService2025: document.querySelector('textarea[name="objectifs-service-2025"]').value,
-                objectifs2024: document.querySelector('input[name="objectifs-2024"]:checked').value,
-                objectifsPrincipaux: document.querySelector('textarea[name="objectifs-principaux"]').value,
-                visionPersonnelle: document.querySelector('textarea[name="vision-personnelle"]').value,
-                ajustements: document.querySelector('input[name="ajustements"]:checked').value,
-                competencesAcquises: document.querySelector('textarea[name="competences-acquises"]').value,
-                formationsSuivies: document.querySelector('textarea[name="formations-suivies"]').value,
-                livresLus: document.querySelector('input[name="livres-lus"]:checked').value,
-                axesAmelioration: document.querySelector('textarea[name="axes-amelioration"]').value,
-                relationsFamiliales: document.querySelector('input[name="relations-familiales"]:checked').value,
-                qualiteAmitie: document.querySelector('input[name="qualite-amitie"]:checked').value,
-                gestionConflits: document.querySelector('textarea[name="gestion-conflits"]').value,
-                reflexionsAnnee: document.querySelector('textarea[name="reflexions-annee"]').value,
-                objectifsFuturs: document.querySelector('textarea[name="objectifs-futurs"]').value
-            };
+            // Ensure the script runs after the DOM is fully loaded
+window.onload = function() {
+    // Function to handle form submission
+    function submitForm() {
+        // Prepare the form data with checks for null
+        const formData = {
+            nom: getValue(document.getElementById('nom')),
+            prenom: getValue(document.getElementById('prenom')),
+            telephone: getValue(document.getElementById('telephone')),
+            faithProgress: getValue(document.querySelector('input[name="faith-progress"]:checked'), ''),
+            debutAnnee: getValue(document.querySelector('input[name="debut-annee"]:checked'), ''),
+            encadrementSpirituel: getValue(document.querySelector('input[name="encadrement-spirituel"]:checked'), ''),
+            objectifsSpirituels2025: getValue(document.querySelector('textarea[name="objectifs-spirituels-2025"]'), ''),
+            epanouissement: getValue(document.querySelector('input[name="epanouissement"]:checked'), ''),
+            meditationProgress: getValue(document.getElementById('meditation-progress')),
+            besoinSuivi: getValue(document.querySelector('input[name="besoin-suivi"]:checked'), ''),
+            objectifsCroissance2025: getValue(document.querySelector('textarea[name="objectifs-croissance-2025"]'), ''),
+            ministere: getValue(document.getElementById('ministere')),
+            engagementProgress: getValue(document.getElementById('engagement-progress')),
+            objectifsService2025: getValue(document.querySelector('textarea[name="objectifs-service-2025"]'), ''),
+            objectifs2024: getValue(document.querySelector('input[name="objectifs-2024"]:checked'), ''),
+            objectifsPrincipaux: getValue(document.querySelector('textarea[name="objectifs-principaux"]'), ''),
+            visionPersonnelle: getValue(document.querySelector('textarea[name="vision-personnelle"]'), ''),
+            ajustements: getValue(document.querySelector('input[name="ajustements"]:checked'), ''),
+            competencesAcquises: getValue(document.querySelector('textarea[name="competences-acquises"]'), ''),
+            formationsSuivies: getValue(document.querySelector('textarea[name="formations-suivies"]'), ''),
+            livresLus: getValue(document.querySelector('input[name="livres-lus"]:checked'), ''),
+            axesAmelioration: getValue(document.querySelector('textarea[name="axes-amelioration"]'), ''),
+            relationsFamiliales: getValue(document.querySelector('input[name="relations-familiales"]:checked'), ''),
+            qualiteAmitie: getValue(document.querySelector('input[name="qualite-amitie"]:checked'), ''),
+            gestionConflits: getValue(document.querySelector('textarea[name="gestion-conflits"]'), ''),
+            reflexionsAnnee: getValue(document.querySelector('textarea[name="reflexions-annee"]'), ''),
+            objectifsFuturs: getValue(document.querySelector('textarea[name="objectifs-futurs"]'), '')
+        };
+
+        // Proceed with form submission using formData
+        // ...
+    }
+
+    // Helper function to get element value safely
+    function getValue(element, defaultValue = null) {
+        return element ? element.value : defaultValue;
+    }
+};
 
 
            
