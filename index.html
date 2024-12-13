@@ -406,7 +406,7 @@
                     <div class="input-group">
                         <label>Dans quels ministères êtes-vous impliqué(e) ?<span class="required">*</span></label>
                         <select name="ministere" id="ministere">
-                            <option value="">Sélectionnez un ministère</option>
+                            <option value=""  disabled selected>Sélectionnez un ministère</option>
                             <option value="enfants">Ministère des enfants</option>
                             <option value="protocole">Ministère du protocole</option>
                             <option value="technique">Ministère technique</option>
@@ -596,7 +596,7 @@
             // Validate select elements with required attribute
             const selects = document.querySelectorAll('select[required]');
             selects.forEach(select => {
-                if (select.value === '') {
+                if (select.value === "") {
                     isValid = false;
                     alert(`Veuillez sélectionner une option pour ${select.name}.`);
                 }
