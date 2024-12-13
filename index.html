@@ -394,7 +394,7 @@
         }
 
     // Ajouter des écouteurs d'événements pour la validation en temps réel
-     ,document.querySelectorAll('textarea').forEach(textarea => {
+     document.querySelectorAll('textarea').forEach(textarea => {
                 textarea.addEventListener('input', function () {
                     if (this.value.length < 50) {
                         this.style.border = '2px solid #ffcccb';
