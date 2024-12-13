@@ -327,23 +327,23 @@
                                 <label for="debut10">10%</label>
                             </div>
                             <div class="percentage-option">
-                                <input type="radio" name="debut-annee" value="30" id="debut10">
+                                <input type="radio" name="debut-annee" value="30" id="debut30">
                                 <label for="debut10">30%</label>
                             </div>
                             <div class="percentage-option">
-                                <input type="radio" name="debut-annee" value="50" id="debut10">
+                                <input type="radio" name="debut-annee" value="50" id="debut50">
                                 <label for="debut10">50%</label>
                             </div>
                             <div class="percentage-option">
-                                <input type="radio" name="debut-annee" value="70" id="debut10">
+                                <input type="radio" name="debut-annee" value="70" id="debut70">
                                 <label for="debut10">70%</label>
                             </div>
                             <div class="percentage-option">
-                                <input type="radio" name="debut-annee" value="90" id="debut10">
+                                <input type="radio" name="debut-annee" value="90" id="debut990">
                                 <label for="debut10">90%</label>
                             </div>
                             <div class="percentage-option">
-                                <input type="radio" name="debut-annee" value="100" id="debut10">
+                                <input type="radio" name="debut-annee" value="100" id="debut100">
                                 <label for="debut10">100%</label>
                             </div>
                             <!-- Add other percentage options similarly -->
@@ -690,19 +690,14 @@
             console.log(formData);
             fetch('https://script.google.com/macros/s/AKfycbwAncap897JvBTkJ3Y0EUWNUcTE4VPrz8ijTk-HG98oC9qhxrAR7s2iXOSp_dKCRIir/exec', {
                 method: 'POST',
-                mode: 'no-cors', // This makes the response opaque
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(formData)
             })
-                .then(response => {
-                    // Don't try to parse JSON when using no-cors
-                    if (response.type === 'opaque') {
-                        // Assume success since we can't read the response
-                        return { success: true };
-                    }
-                    return response.text(); // Use text() instead of json()
+                .then(response => response.text())
+                .then(result => {
+                 console.log('Success:', result);
                 })
                 .then(data => {
                     alert('Votre bilan a été envoyé avec succès !');
