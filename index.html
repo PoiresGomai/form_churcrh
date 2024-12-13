@@ -562,6 +562,7 @@
         });
 
         function submitForm() {
+            let isValid = true;
 
             // List of required radio button groups
             const requiredGroups = [
@@ -607,7 +608,6 @@
             const ranges = document.querySelectorAll('input[type="range"]');
 
             // Valider que chaque textarea contient au moins 50 caractères
-            let isValid = true;
             textareas.forEach(textarea => {
                 if (textarea.value.length < 30) {
                     isValid = false;
