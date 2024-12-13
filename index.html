@@ -687,6 +687,7 @@
             submitBtn.textContent = 'Envoi en cours...';
 
             // Remplacer la partie google.script.run par une requête fetch
+            console.log(formData);
             fetch('https://script.google.com/macros/s/AKfycbwAncap897JvBTkJ3Y0EUWNUcTE4VPrz8ijTk-HG98oC9qhxrAR7s2iXOSp_dKCRIir/exec', {
                 method: 'POST',
                 mode: 'no-cors', // This makes the response opaque
