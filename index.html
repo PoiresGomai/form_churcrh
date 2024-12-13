@@ -290,7 +290,7 @@
                 <div class="subsection">
                     <h3 id="ma-foi-title">Ma foi dans ma communauté chrétienne</h3>
                     <div class="input-group">
-                        <label>Évolution de ma foi en 2024</label>
+                        <label>Évolution de ma foi en 2024<span class="required">*</span></label>
                         <div class="percentage-choices">
                             <div class="percentage-option">
                                 <input type="radio" name="faith-progress" value="10" id="faith10">
@@ -320,30 +320,30 @@
                     </div>
 
                     <div class="input-group">
-                        <label>À quel pourcentage étiez-vous au début de l'année?</label>
+                        <label>À quel pourcentage étiez-vous au début de l'année?<span class="required">*</span></label>
                         <div class="percentage-choices" id="debut-annee">
                             <div class="percentage-option">
                                 <input type="radio" name="debut-annee" value="10" id="debut10">
                                 <label for="debut10">10%</label>
                             </div>
                             <div class="percentage-option">
-                                <input type="radio" name="debut-annee" value="10" id="debut10">
+                                <input type="radio" name="debut-annee" value="30" id="debut10">
                                 <label for="debut10">30%</label>
                             </div>
                             <div class="percentage-option">
-                                <input type="radio" name="debut-annee" value="10" id="debut10">
+                                <input type="radio" name="debut-annee" value="50" id="debut10">
                                 <label for="debut10">50%</label>
                             </div>
                             <div class="percentage-option">
-                                <input type="radio" name="debut-annee" value="10" id="debut10">
+                                <input type="radio" name="debut-annee" value="70" id="debut10">
                                 <label for="debut10">70%</label>
                             </div>
                             <div class="percentage-option">
-                                <input type="radio" name="debut-annee" value="10" id="debut10">
+                                <input type="radio" name="debut-annee" value="90" id="debut10">
                                 <label for="debut10">90%</label>
                             </div>
                             <div class="percentage-option">
-                                <input type="radio" name="debut-annee" value="10" id="debut10">
+                                <input type="radio" name="debut-annee" value="100" id="debut10">
                                 <label for="debut10">100%</label>
                             </div>
                             <!-- Add other percentage options similarly -->
@@ -351,14 +351,14 @@
                     </div>
                     <div class="input-group">
                         <label>Avez-vous besoin d'un encadrement spirituel pour mieux grandir ou continuer votre
-                            progression en 2025?</label>
+                            progression en 2025?<span class="required">*</span></label>
                         <div class="radio-group">
                             <label><input type="radio" name="encadrement-spirituel" value="oui"> Oui</label>
                             <label><input type="radio" name="encadrement-spirituel" value="non"> Non</label>
                         </div>
                     </div>
                     <div class="input-group">
-                        <label>Quels sont vos objectifs spirituels pour 2025?</label>
+                        <label>Quels sont vos objectifs spirituels pour 2025?<span class="required">*</span></label>
                         <textarea name="objectifs-spirituels-2025"
                             placeholder="Citez au moins deux objectifs"></textarea>
                     </div>
@@ -369,7 +369,7 @@
                     <h3>Méditation de la Parole et Vie de prière</h3>
 
                     <div class="input-group">
-                        <label>Vous sentez-vous épanoui(e) dans votre vie de prière ?</label>
+                        <label>Vous sentez-vous épanoui(e) dans votre vie de prière ?<span class="required">*</span></label>
                         <div class="radio-group">
                             <label><input type="radio" name="epanouissement" value="oui"> Oui</label>
                             <label><input type="radio" name="epanouissement" value="non"> Non</label>
@@ -378,7 +378,7 @@
 
                     <div class="input-group">
                         <label>Comment évaluez-vous votre progression dans la méditation de la Parole en
-                            2024 ?</label>
+                            2024 ?<span class="required">*</span></label>
                         <div class="progress-container">
                             <input type="range" min="0" max="100" value="50" class="progress" id="meditation-progress">
                             <div class="percentage-value"><span id="meditation-value">50</span>%</div>
@@ -386,7 +386,7 @@
                     </div>
 
                     <div class="input-group">
-                        <label>Avez-vous besoin de stratégies et de suivi dans ce domaine ?</label>
+                        <label>Avez-vous besoin de stratégies et de suivi dans ce domaine ?<span class="required">*</span></label>
                         <div class="radio-group">
                             <label><input type="radio" name="besoin-suivi" value="oui"> Oui</label>
                             <label><input type="radio" name="besoin-suivi" value="non"> Non</label>
@@ -404,7 +404,7 @@
                     <h3>Engagement dans le service chrétien</h3>
 
                     <div class="input-group">
-                        <label>Dans quels ministères êtes-vous impliqué(e) ?</label>
+                        <label>Dans quels ministères êtes-vous impliqué(e) ?<span class="required">*</span></label>
                         <select name="ministere" id="ministere">
                             <option value="">Sélectionnez un ministère</option>
                             <option value="enfants">Ministère des enfants</option>
@@ -417,7 +417,7 @@
                     </div>
 
                     <div class="input-group">
-                        <label>Comment évaluez-vous votre niveau d'engagement actuel ?</label>
+                        <label>Comment évaluez-vous votre niveau d'engagement actuel ?<span class="required">*</span></label>
                         <div class="progress-container">
                             <input type="range" min="0" max="100" value="50" class="progress" id="engagement-progress">
                             <div class="percentage-value"><span id="engagement-value">50</span>%</div>
@@ -438,7 +438,7 @@
                 <div class="subsection">
                     <h3>Objectifs de vie et vision personnelle</h3>
                     <div class="input-group">
-                        <label>Est-ce que mes objectifs 2024 ont été atteints ou ont progressé?</label>
+                        <label>Est-ce que mes objectifs 2024 ont été atteints ou ont progressé?<span class="required">*</span></label>
                         <div class="radio-group">
                             <label><input type="radio" name="objectifs-2024" value="oui"> Oui</label>
                             <label><input type="radio" name="objectifs-2024" value="non"> Non</label>
@@ -453,7 +453,7 @@
                         <textarea name="vision-personnelle"></textarea>
                     </div>
                     <div class="input-group">
-                        <label>Y-a-t-il des ajustements à faire?</label>
+                        <label>Y-a-t-il des ajustements à faire?<span class="required">*</span></label>
                         <div class="radio-group">
                             <label><input type="radio" name="ajustements" value="oui"> Oui</label>
                             <label><input type="radio" name="ajustements" value="non"> Non</label>
@@ -472,7 +472,7 @@
                         <textarea name="formations-suivies"></textarea>
                     </div>
                     <div class="input-group">
-                        <label>Avez-vous lu des livres qui ont contribué à votre épanouissement?</label>
+                        <label>Avez-vous lu des livres qui ont contribué à votre épanouissement?<span class="required">*</span></label>
                         <div class="radio-group">
                             <label><input type="radio" name="livres-lus" value="oui"> Oui</label>
                             <label><input type="radio" name="livres-lus" value="non"> Non</label>
@@ -487,7 +487,7 @@
                 <div class="subsection">
                     <h3>Relations interpersonnelles</h3>
                     <div class="input-group">
-                        <label>Comment qualifieriez-vous vos relations familiales?</label>
+                        <label>Comment qualifieriez-vous vos relations familiales?<span class="required">*</span></label>
                         <div class="radio-group">
                             <label><input type="radio" name="relations-familiales" value="tres-bonne"> Très
                                 bonne</label>
@@ -497,7 +497,7 @@
                         </div>
                     </div>
                     <div class="input-group">
-                        <label>Quelle est la qualité de vos amitiés?</label>
+                        <label>Quelle est la qualité de vos amitiés?<span class="required">*</span></label>
                         <div class="radio-group">
                             <label><input type="radio" name="qualite-amitie" value="tres-bonne"> Très bonne</label>
                             <label><input type="radio" name="qualite-amitie" value="bonne"> Bonne</label>
@@ -526,7 +526,7 @@
                 </div>
 
                 <div class="subsection">
-                    <h3>Objectifs pour la prochaine année</h3>
+                    <h3>Objectifs pour la prochaine année<span class="required">*</span></h3>
                     <textarea placeholder="Définissez vos objectifs futurs :
 - Quels sont vos objectifs spirituels précis ?
 - Quelles nouvelles compétences souhaitez-vous développer ?
@@ -562,9 +562,48 @@
         });
 
         function submitForm() {
+
+            // List of required radio button groups
+            const requiredGroups = [
+                'faith-progress',
+                'debut-annee',
+                'encadrement-spirituel',
+                'epanouissement',
+                'besoin-suivi',
+                'objectifs-2024',
+                'ajustements',
+                'livres-lus',
+                'relations-familiales',
+                'qualite-amitie'
+            ];
+
+            // Validate required radio groups
+            requiredGroups.forEach(groupName => {
+                const inputs = document.querySelectorAll(`input[name="${groupName}"]`);
+                let isAnyChecked = false;
+                inputs.forEach(input => {
+                    if (input.checked) {
+                        isAnyChecked = true;
+                    }
+                });
+                if (!isAnyChecked) {
+                    isValid = false;
+                    alert(`Veuillez sélectionner une option pour ${groupName}.`);
+                }
+            });
+
+            // Validate select elements with required attribute
+            const selects = document.querySelectorAll('select[required]');
+            selects.forEach(select => {
+                if (select.value === '') {
+                    isValid = false;
+                    alert(`Veuillez sélectionner une option pour ${select.name}.`);
+                }
+            });
+
             // Récupérer toutes les valeurs des textareas
             const textareas = document.querySelectorAll('textarea');
-            
+
             const ranges = document.querySelectorAll('input[type="range"]');
 
             // Valider que chaque textarea contient au moins 50 caractères
@@ -579,7 +618,7 @@
             });
 
             if (!isValid) {
-                alert('Veuillez remplir tous les champs avec au moins 50 caractères.');
+                alert('Veuillez remplir tous les champs avec au moins 30 caractères.');
                 return;
             }
 
@@ -600,7 +639,7 @@
                 epanouissement: document.querySelector('input[name="epanouissement"]:checked').value,
                 meditationProgress: document.getElementById('meditation-progress').value,
                 besoinSuivi: document.querySelector('input[name="besoin-suivi"]:checked').value,
-                objectifsCroissance2025: document.querySelector('textarea[name="objectifs-croissance-2025"]').value= '',
+                objectifsCroissance2025: document.querySelector('textarea[name="objectifs-croissance-2025"]').value = '',
                 ministere: document.getElementById('ministere').value,
                 engagementProgress: document.getElementById('engagement-progress').value,
                 objectifsService2025: document.querySelector('textarea[name="objectifs-service-2025"]').value,
@@ -620,7 +659,7 @@
             };
 
 
-           
+
 
             // Radio buttons and selects validation
             const radios = document.querySelectorAll('input[type="radio"], input[type="checkbox"], select');
@@ -641,20 +680,6 @@
                     }
                 }
             });
-
-            // Ensure select has a value
-            const selects = document.querySelectorAll('select');
-            selects.forEach(select => {
-                if (select.value === '') {
-                    isValid = false;
-                    alert(`Veuillez sélectionner une option pour ${select.name}.`);
-                }
-            });
-
-            if (!isValid) {
-                alert('Veuillez remplir tous les champs requis.');
-                return;
-            }
 
             // Désactiver le bouton pendant l'envoi
             const submitBtn = document.querySelector('.submit-btn');
