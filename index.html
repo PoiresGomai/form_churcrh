@@ -394,17 +394,16 @@
         }
     }
 
-    // Validation en temps réel des textareas
-    document.querySelectorAll('textarea').forEach(textarea => {
-        textarea.addEventListener('input', function() {
-            if (this.value.length < 50) {
-                this.style.border = '2px solid #ffcccb';
-            } else {
-                this.style.border = '1px solid #ddd';
-            }
-        });
-    });
-});
+    // Ajouter des écouteurs d'événements pour la validation en temps réel
+     ,document.querySelectorAll('textarea').forEach(textarea => {
+                textarea.addEventListener('input', function () {
+                    if (this.value.length < 50) {
+                        this.style.border = '2px solid #ffcccb';
+                    } else {
+                        this.style.border = '1px solid #ddd';
+                    }
+                });
+            }));
 </script>
 
 
