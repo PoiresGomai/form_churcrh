@@ -375,26 +375,34 @@ script-src 'self' 'unsafe-inline' https://script.google.com https://google-apps-
 
                 // Remplacer la partie google.script.run par une requête fetch
                 fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formData)
-                })
-                    .then(response => response.json())
-                    .then(data => {
-                        alert('Votre bilan a été envoyé avec succès !');
-                        document.getElementById('evaluationForm').reset();
-                        submitBtn.disabled = false;
-                        submitBtn.textContent = 'Enregistrer le bilan';
-                    })
-                    .catch(error => {
-                        alert('Une erreur est survenue lors de l\'enregistrement. Veuillez réessayer.');
-                        console.error('Error:', error);
-                        submitBtn.disabled = false;
-                        submitBtn.textContent = 'Enregistrer le bilan';
-                    });
+    method: 'POST',
+    mode: 'no-cors', // This makes the response opaque
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(formData)
+})
+    .then(response => {
+        // Don't try to parse JSON when using no-cors
+        if (response.type === 'opaque') {
+            // Assume success since we can't read the response
+            return { success: true };
+        }
+        return response.text(); // Use text() instead of json()
+    })
+    .then(data => {
+        alert('Votre bilan a été envoyé avec succès !');
+        document.getElementById('evaluationForm').reset();
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enregistrer le bilan';
+    })
+    .catch(error => {
+        alert('Une erreur est survenue lors de l\'enregistrement. Veuillez réessayer.');
+        console.error('Error:', error);
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enregistrer le bilan';
+    });
+
             }
 
             // Ajouter des écouteurs d'événements pour la validation en temps réel
