@@ -661,25 +661,25 @@
 
 
 
-            // Radio buttons and selects validation
-            const radios = document.querySelectorAll('input[type="radio"], input[type="checkbox"], select');
-            radios.forEach(radio => {
-                if (!radio.checked && radio.type !== 'checkbox') {
-                    if (radio.name) {
-                        const radiosName = document.querySelectorAll(`input[name="${radio.name}"]`);
-                        let isAnyChecked = false;
-                        radiosName.forEach(r => {
-                            if (r.checked) {
-                                isAnyChecked = true;
-                            }
-                        });
-                        if (!isAnyChecked) {
-                            isValid = false;
-                            alert(`Veuillez sélectionner une option pour ${radio.name}.`);
-                        }
-                    }
-                }
-            });
+            // // Radio buttons and selects validation
+            // const radios = document.querySelectorAll('input[type="radio"], input[type="checkbox"], select');
+            // radios.forEach(radio => {
+            //     if (!radio.checked && radio.type !== 'checkbox') {
+            //         if (radio.name) {
+            //             const radiosName = document.querySelectorAll(`input[name="${radio.name}"]`);
+            //             let isAnyChecked = false;
+            //             radiosName.forEach(r => {
+            //                 if (r.checked) {
+            //                     isAnyChecked = true;
+            //                 }
+            //             });
+            //             if (!isAnyChecked) {
+            //                 isValid = false;
+            //                 alert(`Veuillez sélectionner une option pour ${radio.name}.`);
+            //             }
+            //         }
+            //     }
+            // });
 
             // Désactiver le bouton pendant l'envoi
             const submitBtn = document.querySelector('.submit-btn');
